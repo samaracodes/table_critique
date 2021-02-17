@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users, only: [:show] do
-    #nested resources for posts
-    resources :posts, only: [:show, :index]
-  end
-
-  resource :posts, only: [:index, :show, :new, :create, :edit, :update]
-  root 'posts#index'
+  get '/signup', to: 'users#new'
+  get '/login', to: 'users#show'
+  
+  
+  resource :reviews
+  resource :users
+  resource :categories
+  
 
 end

@@ -1,0 +1,10 @@
+<h1> Create A New Restaurant Review </h1>
+<%= form_tag reviews_path do %>
+    <%= label_tag "Title:" %>
+    <%= text_field_tag :title %>
+    <p>
+    <%= label_tag "Content:" %>
+    <%= text_field_tag :content %>
+    <p>
+    <%= submit_tag "Submit" %>
+<% end %> 
