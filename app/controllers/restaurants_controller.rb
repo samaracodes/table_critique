@@ -1,4 +1,4 @@
-class RestauranctController < ApplicationController 
+class RestaurantController < ApplicationController 
 
 
 
