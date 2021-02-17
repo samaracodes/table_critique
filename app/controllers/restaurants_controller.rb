@@ -3,6 +3,9 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.new
     end
 
+    def show
+    end
+
     def create
         @restaurant = Restaurant.new(restaurant_params)
         @restaurant.user_id = session[:user_id]
