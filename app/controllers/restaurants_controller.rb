@@ -21,8 +21,9 @@ class RestaurantsController < ApplicationController
 
     def index
         if params[:category_id]
-            category = Category.find(params[:id])
-            @restaurants = category.restaurants
+            @restaurants = Category.find(params[:id]).restaurants
+        else
+            @restaurants.all
         end
     end
 
