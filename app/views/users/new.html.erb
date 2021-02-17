@@ -1,5 +1,6 @@
 <h1>Sign Up Today!</h1>
-<%= form_for @user do |f| %>
+
+<%= form_for(@user, action:'/signup') do |f| %>
   <%= f.label "User Name:" %>
   <%= f.text_field :username %>
   <p>
