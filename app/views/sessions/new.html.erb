@@ -1,1 +1,13 @@
 <h1> Login! </h1>
+
+<%= form_for :user do |f| %>
+    <%= f.label "User Name:" %>
+    <%= f.text_field :username %>
+    <p>
+
+    <%= f.label "Password:" %>
+    <%= f.password_field :password %>
+    <p>
+
+    <%= f.submit "Login" %>
+<% end %>
