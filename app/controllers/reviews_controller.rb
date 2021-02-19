@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
    before_action :redirect_if_not_logged_in
 
    def index
-      @reviews = Review.all
+      @reviews = Review.all.order("created_at DESC")
    end
 
    def new
@@ -19,6 +19,10 @@ class ReviewsController < ApplicationController
       else 
          render :new
       end
+   end
+
+   def show
+      @review = Review.find_by(params[:id])
    end
 
    private
