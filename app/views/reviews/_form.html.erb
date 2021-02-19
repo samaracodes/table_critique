@@ -1,8 +1,6 @@
 <%= form_for @review do |f| %>
-    <%= f.fields_for :restaurants do |r| %>
-        <%= r.label "Restaurant Name:"%>
-        <%= r.text_field :name %>
-    <% end %> 
+    <%= f.label :restaurant_name %>
+    <%= f.text_field :restaurant_name %>
     <p>
     <%= f.label "Review Title:"%>
     <%= f.text_field :title %>
