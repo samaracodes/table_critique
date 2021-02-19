@@ -1,18 +1,2 @@
 <h1>New Restaurant Review </h1>
-<%= form_for(@review) do |f| %>
-    <p>
-    <%= f.fields_for :restaurants do |r| %>
-        <%= r.label "Restaurant Name:"%>
-        <%= r.text_field :name %>
-    <% end %> 
-    <p>
-
-    <%= f.label :title %>:
-    <%= f.text_field :title %>
-    <p>
-    <%= f.label :content %>:
-    <%= f.text_field :content %>
-    <p>
-
-    <%= f.submit %>
-<% end %> 
+<%= render 'form', review: Review.new %>
