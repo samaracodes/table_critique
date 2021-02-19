@@ -14,10 +14,27 @@ Rails.application.routes.draw do
 
   
   resources :reviews
-  resources :users
-  resources :categories
+  resources :users do 
+    resources :reviews, only: [:new, :create, :index]
+  end
+  resources :restaurants
 
-  
+  #NESTED ROUTES
+    # purpose of nested routes is so we can find
+    #users/:id/reviews
+
+    # new, show, or index
+
+    #'/users'
+
+    #'/users/:id/reviews'
+
+    #'/reviews'
+
+    #'/restaurants'
+
+    #'/restaurants/:id/reviews'
+
   
 
 end
