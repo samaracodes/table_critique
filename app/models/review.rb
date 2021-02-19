@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
     belongs_to :user
-    belongs_to :restaurant 
-
+    has_one :restaurant
+    has_one :category, through: :restaurants
+ 
 end
