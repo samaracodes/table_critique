@@ -1,1 +1,6 @@
-All Reviews/ aka home page
+<h1>All Reviews</h1>
+<ul>
+<% @reviews.each do |review| %>
+  <li><%= link_to review.title, review %></li>
+<% end %>
+</ul>
