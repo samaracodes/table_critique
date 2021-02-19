@@ -11,15 +11,14 @@ class UsersController < ApplicationController
             #log them in
             session[:user_id] = @user.id
             #redirect to the show page
-            redirect_to users_path
+            redirect_to @user
         else 
-            flash[:error] = "Please Try Again"
             render :new
         end
     end
 
     def show 
-        @user = User.find_by_id(id: params[:id])
+        @user = User.find_by_id(params[:id])
         redirect_to '/' if !@user
     end
 
@@ -27,7 +26,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password_digest)
+        params.require(:user).permit(:username, :password)
     end
 
 end
