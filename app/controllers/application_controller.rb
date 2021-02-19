@@ -1,4 +1,11 @@
 class ApplicationController < ActionController::Base
+    
+    #to have access to these methods in the views,
+    # label them as helper methods
+    helper_method :current_user, :logged_in?
+
+    private
+
     def current_user
         #we dont user @user because it might override the user 
         # variable in the controller
