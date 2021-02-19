@@ -15,6 +15,21 @@ class RestaurantsController < ApplicationController
 
         end
     end
+  
+     def new
+        @restaurant = Restaurant.new
+     end
+  
+     def create
+        @restaurant = current_user.reviews.create(restaurant_params)
+        @restaurant.save
+     end
+  
+     private
+     
+     def restaurant_params
+        params.require(:restaurant).permit(:name)
+     end
 
 
 end
