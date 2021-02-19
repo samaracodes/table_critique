@@ -10,5 +10,13 @@ class Review < ApplicationRecord
             self.categories << category if category
         end
     end
+
+    def restaurant_name=(name)
+        self.restaurant = Restaurant.find_or_create_by(name: name)
+    end
+    
+    def restaurant_name
+        self.restaurant ? self.restaurant.name : nil
+    end
     
 end
