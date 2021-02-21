@@ -24,6 +24,13 @@ gem 'jbuilder', '~> 2.7'
  #Use binding.pry
  gem 'pry'
 
+ gem 'shutup'
+ 
+ gem "omniauth"
+ gem "omniauth-rails_csrf_protection"
+ gem 'omniauth-github'
+ gem 'dotenv-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
