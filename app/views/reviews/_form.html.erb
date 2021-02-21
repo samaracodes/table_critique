@@ -1,12 +1,26 @@
 <%= form_for @review do |f| %>
-    <%= f.label :restaurant_name %>
+    <%= f.label :restaurant_name %>:
     <%= f.text_field :restaurant_name %>
     <p>
+
+    <p> Select a Restaurant Category: </p>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    <p>
+
+    <%= f.fields_for :categories, review.categories.build do |categories_fields| %>
+        <p><b> OR </b></p>
+        <%= categories_fields.label "Create A New Category: " %>
+        <%= categories_fields.text_field :name %>
+    <% end %>
+    <p>
+
     <%= f.label "Review Title:"%>
     <%= f.text_field :title %>
     <p>
+
     <%= f.label "Content:" %>
     <%= f.text_area :content %>
     <p>
+
     <%= f.submit %>
   <% end %>
