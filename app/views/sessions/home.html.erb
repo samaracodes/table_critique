@@ -1,4 +1,8 @@
 <h1>Home Page </h1>
-
-<%= link_to "Sign Up Here", signup_path %> |
-<%= link_to "Login Here", '/login' %>
+<%= flash[:message] %>
+<p>
+<%= link_to "Sign Up Here", signup_path %> 
+<p>
+<%= link_to "Login Here", '/login' %> 
+<p>
+ <%= button_to("Log In with Github", '/auth/github')%>
