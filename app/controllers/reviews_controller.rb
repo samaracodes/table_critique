@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
    def create
       @review = current_user.reviews.build(review_params)
       @restaurant = Restaurant.find_or_create_by(name: params[:review][:restaurant_name])
+      @category = Category.find_or_create_by(name: params[:review][:categories])
         #if the post exists in the db
       if @review.save
       #redirect to the show page
@@ -29,6 +30,6 @@ class ReviewsController < ApplicationController
    private
    
    def review_params
-      params.require(:review).permit(:title, :content, :restaurant_name)
+      params.require(:review).permit(:title, :content, :restaurant_name, category_ids: [], categories_attributes: [:name])
    end
 end
