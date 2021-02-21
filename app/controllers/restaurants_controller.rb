@@ -1,19 +1,12 @@
 class RestaurantsController < ApplicationController 
 
+    def show
+        @restaurant = Restaurant.find_by(params[:restaurant_id])
+        @reviews = Review.find_by(params[:restaurant_id])
+     end
+     
     def index
-        if params[:review_id]
-            #nested
-            @review = Review.find_by_id(params[:review_id])
-            if @review
-                @restaurant = @review.restaurant
-            else
-                flash[:message] = "That review doesn't exist"
-                @restaurants = Restaurant.all
-            end
-        else 
-            @restaurants = Restaurant.all
-
-        end
+        @restaurants = Restaurant.all
     end
   
      def new
@@ -21,8 +14,7 @@ class RestaurantsController < ApplicationController
      end
   
      def create
-        @restaurant = current_user.reviews.create(restaurant_params)
-        @restaurant.save
+        @restaurant = Restaurant.create(restaurant_params)
      end
   
      private
