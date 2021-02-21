@@ -29,5 +29,27 @@ class SessionsController < ApplicationController
         end
     end
 
+    def github
+        #find or create a user using the attributes auth
+        user = User.find_or_create_by(username: auth['info']['nickname']) do |u|
+            u.username = auth['info']['nickname']
+            u.password = SecureRandom.hex(10)
+        end
+
+        if user.save
+          session[:user_id] = user.id
+          redirect_to user_path(user)
+        else 
+            flash[:message] = "Something went wrong, please try again!"
+            redirect_to '/'
+        end
+    end
+
+    private 
+
+    def auth
+        request.env['omniauth.auth']
+    end
+    
 
 end
