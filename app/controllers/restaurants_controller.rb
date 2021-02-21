@@ -2,7 +2,6 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find_by(params[:restaurant_id])
-        @reviews = Review.find_by(params[:restaurant_id])
      end
      
     def index
@@ -15,6 +14,7 @@ class RestaurantsController < ApplicationController
   
      def create
         @restaurant = Restaurant.create(restaurant_params)
+        @reviews = Review.find_by(params[:restaurant_id])
      end
   
      private
