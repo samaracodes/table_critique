@@ -24,8 +24,10 @@ class CategoriesController < ApplicationController
      end
   
      def create
-        @category = Category.find_or_create_by(restaurant_params)
-     end
+        if @category.blank?
+            @category = Category.find_or_create_by(id: params[:id])
+        end
+    end
   
      private
      
