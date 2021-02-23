@@ -181,6 +181,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     regexp_parser (2.0.3)
     ruby2_keywords (0.0.4)
     rubyzip (2.3.0)
@@ -255,6 +256,7 @@ DEPENDENCIES
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.5)
+  rb-readline
   sass-rails (>= 6)
   selenium-webdriver
   shutup
