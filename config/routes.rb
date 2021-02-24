@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
 
   #omniauth callback route
-  get '/auth/github/callback' => 'sessions#github'
+  get '/auth/:provider/callback' => 'sessions#github'
 
   #logout route
   delete '/logout' => 'sessions#destroy'
@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   
   resources :reviews
-  resources :users do 
-    resources :reviews, only: [:new, :create, :index]
-  end
+  resources :users 
+  resources :review, only: [:show, :edit]
+
   resources :restaurants do
     resources :reviews, only: [:index, :show]
   end
@@ -27,23 +27,6 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:index]
   end
   resources :restaurants, only: [:index, :show]
-
-  #NESTED ROUTES
-    # purpose of nested routes is so we can find
-    #users/:id/reviews
-
-    # new, show, or index
-
-    #'/users'
-
-    #'/users/:id/reviews'
-
-    #'/reviews'
-
-    #'/restaurants'
-
-    #'/restaurants/:id/reviews'
-
   
 
 end
