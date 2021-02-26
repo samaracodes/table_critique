@@ -1,24 +1,14 @@
 class Review < ApplicationRecord
     belongs_to :user
     belongs_to :restaurant
-    has_many :restaurant_categories
-    has_many :categories, through: :restaurant_categories
-    accepts_nested_attributes_for :categories
 
-
-    def categories_attributes=(category_attributes)
-        category_attributes.values.each do |category_attribute|
-          category = Category.find_or_create_by(category_attribute) unless category_attribute[:name].blank?
-          self.categories << category if category
-        end
-    end
-
-    def restaurant_name=(name)
-        self.restaurant = Restaurant.find_or_create_by(name: name)
-    end
+    #scope method
+    scope :recently_created, -> { order(created_at: :desc) }
     
-    def restaurant_name
-        self.restaurant ? self.restaurant.name : nil
+
+  def restaurant_attributes=(restaurant_attributes)
+    self.restaurant = Restaurant.find_or_create_by(name: restaurant_attributes[:name]) do |r|
+        r.category_id = restaurant_attributes[:category_id]
     end
-    
+  end
 end
