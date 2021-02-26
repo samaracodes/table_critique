@@ -1,8 +1,19 @@
-<h1><center> Restaurant Review Show Page </h1>
+<h1><center> Restaurant Review Show Page </center></h1>
 
-<h1><%= link_to @review.restaurant.name , restaurant_path%></h2>
-<small>By: <%= @review.user.username %></small>
-<h3><%= @review.title %></h3>
-<p><%= @review.content %></p>
-<p><%= @review.categories.name %></p>
+<h1><%= link_to @review.restaurant.name , restaurant_path %></h1>
 
+<div>
+    <h2><%= @review.title %></h2>
+    <small>By: <%= @review.user.username %></small>
+    <p><%= @review.content %></p>
+    <br>
+    <p><%= @review.restaurant.categories.name %></p>
+    <br>
+</div>
+
+<br>
+
+<% if current_user == @review.user %>
+    <%= link_to "Edit Review", edit_review_path(@review) %> | 
+    <%= link_to "Delete", @question, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
