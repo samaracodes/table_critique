@@ -1,5 +1,14 @@
 <h1>All Restaurants </h1>
-<%= @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name, restaurant %></li>
-    <p>
+
+<h4> Search by Restaurant: </h4>
+<%= form_tag(restaurants_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+<% end %>
+
+<% @restaurants.each do |restaurant| %>
+    <ul>
+        <li><%= link_to restaurant.name, restaurant %></li>
+        <p>
+    </ul>
 <% end %>
