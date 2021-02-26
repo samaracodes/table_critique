@@ -6,21 +6,20 @@ class ReviewsController < ApplicationController
    end
 
    def show
-      @review = Review.find_by_id(params[:id])
+      @review = Review.find_by(params[:id])
    end
 
    def new
       @review = Review.new
+      @review.build_restaurant
    end
+
    def create
-      @review = current_user.reviews.build(review_params)
-      @restaurant = Restaurant.find_or_create_by(name: params[:restaurant_name])
-      @category = Category.find_or_create_by(id: params[:category_id])
-        #if the post exists in the db
+      @review = current_user.reviews.create(review_params)
+      #if the post exists in the db
       if @review.save
       #redirect to the show page
          redirect_to reviews_path
-         
       else 
          render :new
       end
@@ -49,8 +48,8 @@ class ReviewsController < ApplicationController
    end
 
    def destroy
-      @review = Review.find(params[:id])
-      @review.delete
+      @review = current_user.reviews.find(params[:id])
+      @review.destroy
       redirect_to reviews_path
       flash[:notice] = "The review has been deleted."
    end
@@ -58,7 +57,7 @@ class ReviewsController < ApplicationController
    private
    
    def review_params
-      params.require(:review).permit(:title, :content, :restaurant_name, category_ids: [], categories_attributes: [:name])
+      params.require(:review).permit(:title, :content, restaurant_attributes: [:name, category_ids: []])
    end
 
 end
