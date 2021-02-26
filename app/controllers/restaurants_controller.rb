@@ -1,27 +1,24 @@
 class RestaurantsController < ApplicationController 
 
-    def show
-        @restaurant = Restaurant.find_by(params[:restaurant_id])
-     end
-     
     def index
+        if params[:search]
+            @user = User.search(params[:search])
+         end
         @restaurants = Restaurant.all
     end
+
+
+    def show
+        @restaurant = Restaurant.find_by(params[:id])
+    end
+
+
   
-     def new
-        @restaurant = Restaurant.new
-     end
-  
-     def create
-        @restaurant = Restaurant.create(restaurant_params)
-        @reviews = Review.find_by(params[:restaurant_id])
-     end
-  
-     private
+    private
      
-     def restaurant_params
-        params.require(:restaurant).permit(:name)
-     end
+    def restaurant_params
+        params.require(:restaurant).permit(:name, :search, category_ids: [], categories_attributes: [:name])
+    end
 
 
 end
