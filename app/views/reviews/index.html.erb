@@ -1,6 +1,6 @@
 <h1>All Reviews</h1>
 <ul>
 <% @reviews.each do |review| %>
-  <li><h3><%= review.restaurant_name %> || <%= link_to review.title, review %></h3></li>
+  <li><h3><%= link_to review.restaurant.name , review.restaurant %> || <%= link_to review.title, review %></h3></li>
 <% end %>
 </ul>
