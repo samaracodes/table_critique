@@ -1,7 +1,7 @@
-Individual Restaurant Show Page
+<h1><center>Individual Restaurant Show Page</center></h1>
 
 <h1><%= @restaurant.name %></h1>
 
-<h3><%= @restaurant.reviews each do |review| %></h3>
-    <%= restaurant.review %>
+<h3><% @restaurant.reviews.each do |review| %></h3>
+    <li><%= link_to review.title , review_path %> | By <%= review.user.username %></li>
     <% end %>
