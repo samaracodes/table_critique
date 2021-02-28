@@ -1,2 +1,3 @@
 <h1>Edit Page</h1>
+<%= render 'error_message' %>
 <%= render 'form', review: Review.find_by_id(params[:id])%>
