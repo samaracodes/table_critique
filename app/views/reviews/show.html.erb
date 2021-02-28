@@ -1,17 +1,22 @@
 <h1><center> Restaurant Review Show Page </center></h1>
 
-<h1><%= link_to @review.restaurant.name , restaurant_path %></h1>
+<h1><%= @review.restaurant.name %></h1>
 
 <div>
     <h2><%= @review.title %></h2>
     <small>By: <%= @review.user.username %></small>
     <p><%= @review.content %></p>
     <br>
-    <p><%= @review.restaurant.categories.name %></p>
-    <br>
+
+    <<span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
 </div>
 
-<br>
+<P>
+
 
 <% if current_user == @review.user %>
     <%= link_to "Edit Review", edit_review_path(@review) %> | 
