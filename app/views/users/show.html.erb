@@ -1,4 +1,19 @@
 
-<h1> Welcome <%= @user.username.capitalize %></h1>
+<h1><center> All of <%= @user.username.capitalize %>'s Reviews! </center></h1>
+
+<% @user.reviews.each do |review| %>
+    <ul>
+        <li>
+            <h3><%= review.title%></h3>
+            <p>
+            <%= review.restaurant.name%>
+            <p>
+            <%= review.content %>
+            <p>
+            <small><%= review.created_at %></small>
+        </li>
+        ----------------------------------------------
+    </ul>
+<% end %>
 
 
