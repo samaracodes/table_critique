@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
    end
 
    def show
-      @review = Review.find_by(params[:id])
+      @review = Review.find_by_id(params[:id])
    end
 
    def new
@@ -15,9 +15,10 @@ class ReviewsController < ApplicationController
    end
 
    def create
-      @review = current_user.reviews.create(review_params)
+      @review = current_user.reviews.new(review_params)
       #if the post exists in the db
-      if @review.save
+      if @review.valid?
+         @review.save
       #redirect to the show page
          redirect_to reviews_path
       else 
@@ -28,18 +29,12 @@ class ReviewsController < ApplicationController
    def edit
       @review = Review.find(params[:id])
 
-      if @review.user == current_user
-         @review = Review.find(params[:id])
-      else 
-         redirect_to '/'
-      end
-
    end
 
    def update
-      @review = Review.find_by(params[:id])
-
-      if @review.update(review_params)
+      if logged_in?
+         @review = Review.find_by(params[:id])
+         @review.update(review_params)
          flash[:success] = "Review updated!"
          redirect_to review_path(@review)
       else
@@ -57,7 +52,7 @@ class ReviewsController < ApplicationController
    private
    
    def review_params
-      params.require(:review).permit(:title, :content, restaurant_attributes: [:name, category_ids: []])
+      params.require(:review).permit(:title, :content, restaurant_attributes: [:name, category_id: []])
    end
 
 end
