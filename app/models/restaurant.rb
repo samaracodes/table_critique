@@ -2,6 +2,7 @@ class Restaurant < ApplicationRecord
     has_many :reviews
     has_many :restaurant_categories
     has_many :categories, through: :restaurant_categories
+    validates :name, :category_id, presence: true
     
     def self.search(search)
         if search.present?
@@ -10,4 +11,5 @@ class Restaurant < ApplicationRecord
             where(true)
         end
     end
+
 end
