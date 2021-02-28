@@ -1,12 +1,13 @@
 
-Table Critique is an application used to review and share restaurant reviews with the world! 
+Table Critique is an application used to review and share restaurant reviews with the world!
+----------------------------------------------------
 
 How to run this app:
 Open a terminal & run the server with "rails s"
 Type in localhost:3000 into your browser to see our application in action.
 
-
 As a user I can:
+
 Sign up, sign in and sign out of Table Critique. 
 Create a Restaurant Review
 See all the Reviews posted
@@ -14,6 +15,7 @@ See all Restaurants Reviewed
 Search for a Restaurant
 Edit your own Reviews
 Delete your own Reviews
+
 -----------------------------------------------------
 LICENSE Copyright <2021>
 
