@@ -2,9 +2,18 @@
 <% if flash[:message] %>
     <p style="color: red"> <%= flash[:message]  %> </p> 
 <% end %>
+
+
 <p>
-<%= link_to "Sign Up Here", signup_path %> 
-<p>
-<%= link_to "Login Here", '/login' %> 
-<p>
- <%= button_to("Log In with Github", '/auth/github')%>
+<% if !current_user %>
+    <%= link_to "Sign Up Here", signup_path %> 
+    <p>
+    <%= link_to "Login Here", '/login' %> 
+    <p>
+    <%= button_to("Log In with Github", '/auth/github')%>
+<% else %>
+    <%= link_to "All Reviews", reviews_path %>
+    <p>
+    <%= link_to "All Restaurants", restaurants_path %>
+    <p>
+<% end %>
