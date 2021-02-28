@@ -9,10 +9,12 @@ class RestaurantsController < ApplicationController
 
 
     def show
-        @restaurant = Restaurant.find_by(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:id])
     end
 
-
+    def new
+        @restaurant = Restaurant.new
+     end
   
     private
      
