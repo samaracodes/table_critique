@@ -2,9 +2,10 @@ class RestaurantsController < ApplicationController
 
     def index
         if params[:search]
-            @user = User.search(params[:search])
-         end
-        @restaurants = Restaurant.all
+            @restaurants = Restaurant.where('name LIKE ?', "%#{params[:search]}%")
+        else
+            @restaurants = Restaurant.all
+        end
     end
 
 

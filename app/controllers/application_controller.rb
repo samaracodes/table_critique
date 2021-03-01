@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    
+    protect_from_forgery prepend: true, with: :exception
+
     # gives access to the views
     helper_method :current_user, :logged_in?
 
