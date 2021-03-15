@@ -27,15 +27,15 @@ class ReviewsController < ApplicationController
    end
 
    def edit
-      @review = Review.find(params[:id])
+      @review = Review.find_by_id(params[:id])
 
    end
 
    def update
       if logged_in?
-         @review = Review.find_by(params[:id])
+         @review = Review.find_by_id(params[:id])
          @review.update(review_params)
-         flash[:success] = "Review updated!"
+         flash[:notice] = "Review updated!"
          redirect_to review_path(@review)
       else
          render action: :edit

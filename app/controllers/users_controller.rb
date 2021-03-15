@@ -13,7 +13,8 @@ class UsersController < ApplicationController
             #redirect to the show page
             redirect_to @user
         else 
-            render :new
+            flash[:message] = "Incorrect credentials, please try again"
+            redirect_to "/signup"
         end
     end
 
