@@ -22,6 +22,7 @@ class ReviewsController < ApplicationController
       #redirect to the show page
          redirect_to reviews_path
       else 
+         flash[:message] = "Incorrect credentials, please try again"
          render :new
       end
    end
@@ -35,9 +36,10 @@ class ReviewsController < ApplicationController
       if logged_in?
          @review = Review.find_by_id(params[:id])
          @review.update(review_params)
-         flash[:notice] = "Review updated!"
+         flash[:message] = "Review updated!"
          redirect_to review_path(@review)
       else
+         flash[:message] = "Incorrect credentials, please try again"
          render action: :edit
       end
    end
