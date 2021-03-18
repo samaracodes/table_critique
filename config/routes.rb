@@ -23,9 +23,7 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews, only: [:index, :show]
   end
-  resources :categories do
-    resources :restaurants, only: [:index]
-  end
+  
   resources :restaurants, only: [:index, :show]
   
 
