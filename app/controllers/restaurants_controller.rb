@@ -13,9 +13,21 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find_by_id(params[:id])
     end
 
-    def new
-        @restaurant = Restaurant.new
-     end
+    def reviews_index
+        @restaurant = Restaurant.find_by(params[:id])
+        @review = @restaurant.reviews
+        render template: 'reviews/index'
+    end
+
+    def review
+        @restaurant= Restaurant.find(params[:id])
+     
+        # Note that because ids are unique by table we can go directly to
+        # Review.find — no need for @user.reviews.find...
+        @review = Review.find(params[:review_id])
+        render template: 'reviews/show'
+    end
+
   
     private
      
