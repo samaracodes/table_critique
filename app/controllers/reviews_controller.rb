@@ -2,11 +2,15 @@ class ReviewsController < ApplicationController
    before_action :redirect_if_not_logged_in
 
    def index
-      @reviews = Review.all.recently_created
+      if params[:restaurant_id]
+         @reviews = Restaurant.find_by_id(params[:restaurant_id]).reviews 
+      else
+         @reviews = Review.all.recently_created
+      end
    end
 
    def show
-      @review = Review.find_by_id(params[:id])
+      @review = Review.find_by(params[:id])
    end
 
    def new
@@ -54,7 +58,7 @@ class ReviewsController < ApplicationController
    private
    
    def review_params
-      params.require(:review).permit(:title, :content, restaurant_attributes: [:name, category_id: []])
+      params.require(:review).permit(:title, :content, restaurant_attributes: [:name])
    end
 
 end
