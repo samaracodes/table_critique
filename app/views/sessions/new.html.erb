@@ -1,6 +1,8 @@
 <h1> Login! </h1>
 
-<%= flash[:message] if flash[:message] %>
+<% if flash[:message] %>
+    <p style="color: red"> <%= flash[:message]  %> </p> 
+<% end %>
 
 <%= form_for :user do |f| %>
     <%= f.label "User Name:" %>
