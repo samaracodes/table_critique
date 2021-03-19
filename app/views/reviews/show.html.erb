@@ -11,7 +11,11 @@
     <br>
     <small>
     Category: 
-    <%= @review.categories[0][:name] %>
+
+
+    
+    <%= link_to @review.categories[0].name, category_path(params[:id]) %>
+    
     </small>
     
     <br><br><br>
