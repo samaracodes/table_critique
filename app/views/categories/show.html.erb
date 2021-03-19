@@ -1,9 +1,7 @@
 <center>
-    <h1> SPECIFIC CATEGORY SHOW PAGE </h1>
-
-    <h1><%= @category.name %></h1>
+    <h1>The Category Is: <br><%= @category.name %></h1>
     <br><br>
-    <h3><%= link_to "Click This Link To See All This Category's Reviews", category_reviews_path(@category.id) %></h3>
+    <h3><%= link_to "Click To See All This Category's Reviews", category_reviews_path(@category.id) %></h3>
 
 
 </center>
