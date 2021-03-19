@@ -1,9 +1,16 @@
-<h1><center> All of <%= @restaurant.name %>'s Reviews </center></h1>
+<center>
+<h1><%= @restaurant.name %></h1>
+------------------------------------------------------------
 
-<h3><% @restaurant.reviews.each do |review| %>
-    <li><%= link_to review.title , review %> | By <%= review.user.username %></li>
+<h4> Leave a Review Today For <%= @restaurant.name %> It'll be featured on our Front Page  </h4>
+------------------------------------------------------------
+<br><br>
+<h2> One of our Latest Reviews: </h2>
+<h4><%= link_to @restaurant.reviews.last.title, restaurant_review_path(@restaurant.id) %></h4>
+<h5><%= @restaurant.reviews.last.content %></h5>
+<small><%= @restaurant.reviews.last.created_at %></small>
     <p>
-    <% end %>
-</h3>
 
-<%= link_to "Create a New Review", new_restaurant_review_path(@restaurant.id) %>
+
+<%= link_to "Create a New Review!", new_restaurant_review_path(@restaurant.id) %>
+</center>
