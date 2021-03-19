@@ -3,7 +3,9 @@ class ReviewsController < ApplicationController
 
    def index
       if params[:restaurant_id]
-         @reviews = Restaurant.find_by_id(params[:restaurant_id]).reviews 
+         @reviews = Restaurant.find_by_id(params[:restaurant_id]).reviews
+      elsif params[:category_id]
+         @reviews = Category.find_by_id(params[:category_id]).reviews
       else
          @reviews = Review.recently_created
       end
@@ -16,13 +18,10 @@ class ReviewsController < ApplicationController
    def new
       @review = Review.new
       @review.build_restaurant
-      @review.build_category
    end
 
    def create
       @review = current_user.reviews.new(review_params)
-      
-
 
 
       #if the post exists in the db
@@ -63,7 +62,7 @@ class ReviewsController < ApplicationController
    private
    
    def review_params
-      params.require(:review).permit(:title, :content, restaurant_attributes:[:name, :id], category_attributes:[:name])
+      params.require(:review).permit(:title, :content, :category_ids, restaurant_attributes:[:name], category_attributes:[:name])
    end
 
 end
