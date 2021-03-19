@@ -1,5 +1,12 @@
 <center><h1>All Reviews</h1>
+<% if params[:restaurant_id] %>
+  <%= link_to "Create a New Review", new_restaurant_review_path(params[:restaurant_id]) %>
+<% else %>
+  <% link_to "Create a New Review", new_review_path(@review) %>
+  <% end %>
 
+<br>
+<b4>
 <table>
     <% @reviews.each do |review| %>
       <tr>
@@ -19,9 +26,17 @@
             <small>Created at: <%= review.created_at %></small>
             <p>
         </td>
-
+    
       </tr>
     <% end %>
   </table>
+  
+  
+  <br>
+  <br>
+  <br>
+  
+
+ 
 
 </center>
