@@ -1,7 +1,7 @@
-<h1><center> All of a Restaurant's Reviews </center></h1>
+<h1><center> All of <%= @restaurant.name %>'s Reviews </center></h1>
 
-<h1><%= @restaurant.name %></h1>
-
-<h3><% @restaurant.reviews.each do |review| %></h3>
+<h3><% @restaurant.reviews.each do |review| %>
     <li><%= link_to review.title , review %> | By <%= review.user.username %></li>
+    <p>
     <% end %>
+</h3>
