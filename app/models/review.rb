@@ -1,11 +1,12 @@
 class Review < ApplicationRecord
-  belongs_to :user
-  belongs_to :restaurant
-  belongs_to :category
   has_many :review_categories
   has_many :categories, through: :review_categories
+  belongs_to :user
+  belongs_to :restaurant
+  
+  has_many :restaurants, through: :reviews
   accepts_nested_attributes_for :restaurant
-  accepts_nested_attributes_for :category
+  #accepts_nested_attributes_for :categories
   validates :title, :content, presence: true
   
 
@@ -18,7 +19,8 @@ class Review < ApplicationRecord
   end
 
   def category_attributes=(category_attributes)
-      self.category = Category.find_or_create_by(name: category_attributes[:name])
+    category = Category.find_or_create_by(category_attributes) unless category_attribute[:name].blank?
+    self.categories << category if category
   end
 
 end
