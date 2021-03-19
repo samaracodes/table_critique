@@ -9,13 +9,9 @@
 
     ----------------------
     <br>
-    <small>
-    Category: 
-
-
-    
-    <%= link_to @review.categories[0].name, category_path(params[:id]) %>
-    
+    </small>
+        Category:
+        <%= link_to @review.categories[0].name, category_path(params[:id]) %>
     </small>
     
     <br><br><br>
@@ -25,11 +21,8 @@
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star checked"></span>
     <span class="fa fa-star"></span>
-</div>
 
-<br><P>
-<% if current_user == @review.user %>
-    <%= link_to "Edit Review", edit_review_path(@review) %> | 
-    <%= link_to "Delete", @question, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
+
+</div><br><P>
+<%= render 'validations' %>
 </center>
