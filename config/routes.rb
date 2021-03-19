@@ -12,16 +12,24 @@ Rails.application.routes.draw do
 
   #logout route
   delete '/logout' => 'sessions#destroy'
+
+  
   
 
   root "sessions#home"
 
   
   resources :reviews
-  resources :users 
+  resources :users
+  resources :categories
 
   resources :restaurants do
-    resources :reviews, only: [:index, :show]
+    resources :reviews
+  end
+  
+
+  resources :categories do 
+    resources :reviews
   end
   
   resources :restaurants, only: [:index, :show]

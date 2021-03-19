@@ -1,0 +1,17 @@
+<center>
+    <br>
+        <h1>Search for Reviews by Category</h1>
+        <br>    <br>    <br>
+
+
+    <table>
+        <% @categories.each do |category| %>
+            <tr>
+            <td>
+                <%= link_to category.name, category %>
+                <p>
+            </td>
+            </tr>
+        <% end %>  
+    </table>
+<center>
