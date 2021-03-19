@@ -1,0 +1,36 @@
+<center>
+<br>
+<b4>
+<table>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td>
+            <h3><%= review.title %></h3>
+            <p>
+       
+            <%= review.restaurant.name%>
+            <p>
+
+            <%= link_to "Click Here to See This Review", review %>
+            <p>
+       
+           
+            <p>
+       
+            <small>Created at: <%= review.created_at %></small>
+            <p>
+        </td>
+    
+      </tr>
+    <% end %>
+  </table>
+  
+  
+  <br>
+  <br>
+  <br>
+  
+
+ 
+
+</center>
