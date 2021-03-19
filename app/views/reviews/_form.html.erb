@@ -19,7 +19,8 @@
       <%= category_fields.label "Create a Category:" %>
       <%= category_fields.text_field :name %>
       <p> OR </p>
-      <p> Select a Category: <%= category_fields.collection_select :id, Category.all, :id, :name %></p>
+      <p> Select a Category: <%= category_fields.select(:name, Category.all.map {|p| [p.name]}, :prompt => "Select a Category") %>
+      %></p>
     <% end %>
     <p>
 
