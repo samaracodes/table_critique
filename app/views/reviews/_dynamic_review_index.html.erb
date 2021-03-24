@@ -1,5 +1,0 @@
-<% if params[:restaurant_id] %>
-  <%= link_to "Create a New Review", new_restaurant_review_path(params[:restaurant_id]) %>
-<% else %>
-  <% link_to "Create a New Review", new_review_path(@review) %>
-<% end %>
