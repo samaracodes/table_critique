@@ -1,15 +1,17 @@
 <center>
 <h1><%= @restaurant.name %></h1>
+<h3><%= link_to "See All Our Reviews!", restaurant_reviews_path(@restaurant, @reviews) %></h3><p>
+
 ------------------------------------------------------------
 
-<h4> Leave a Review Today For <%= @restaurant.name %> It'll be featured on our Front Page  </h4>
+<h5> Leave a Review Today For <%= @restaurant.name %> & Get a Chance To Be Featured On Their Front Page  </h5>
 ------------------------------------------------------------
 <br><br>
-<h2> One of our Latest Reviews: </h2>
+<h2> Our Latest Review: </h2>
 <h4><%= link_to @restaurant.reviews.last.title, restaurant_review_path(@restaurant.id) %></h4>
 <h5><%= @restaurant.reviews.last.content %></h5>
-<small><%= @restaurant.reviews.last.created_at %></small>
-    <p>
+<small><%= @restaurant.reviews.last.created_at %></small><p>
+----------------------------------- <p>
 
 
 <%= link_to "Create a New Review!", new_restaurant_review_path(@restaurant.id) %>
