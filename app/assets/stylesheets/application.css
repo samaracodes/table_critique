@@ -26,6 +26,9 @@
     text-align: center;
   }
 
+  :any-link {
+    color: darkturquoise;
+  }
 
   th {
     font-size: large;
