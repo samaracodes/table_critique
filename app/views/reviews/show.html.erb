@@ -11,7 +11,7 @@
     <br>
     </small>
         Category:
-        <%= link_to @review.categories[0].name, category_path(params[:id]) %>
+        <%= @review.categories[0].name%>
     </small>
     
     <br><br><br>
@@ -24,5 +24,7 @@
 
 
 </div><br><P>
-<%= render 'validations' %>
+
+<%= edit_review %>
+<%= delete_review %>
 </center>
