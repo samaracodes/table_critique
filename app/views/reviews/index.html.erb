@@ -1,6 +1,17 @@
 <center><h1>All Reviews</h1>
-<%= render 'dynamic_review_index' %>
-<%= render 'layout' %>
- 
+<%= create_review_link %>
+ <br><br>
 
+<table>
+    <% @reviews.each do |review| %>
+      
+      <%= render review %>
+      
+    <% end %>
+</table>
+  
+  <br>
+  <br>
+  <br>
+ 
 </center>
