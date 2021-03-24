@@ -10,15 +10,17 @@ Type in localhost:3000 into your browser to see our application in action.
 As a user I can:
 ----------------
 Sign up, sign in and sign out of Table Critique. 
-Create a Restaurant Review
-See all the Reviews posted
-See all Restaurants Reviewed
-Search for a Restaurant
+Create a Review
+Search by Restaurant
+Reviews by Category
+Delete a Review
+View your own Profile
+View Another User's Profile 
 Edit your own Reviews
 Delete your own Reviews
 
 -----------------------------------------------------
-LICENSE Copyright <2021>
+LICENSE Copyright Samara Grant<2021>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
