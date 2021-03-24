@@ -2,17 +2,5 @@
 <center>
 <h1> Welcome to Table Critique </h1>
 
-<% if !current_user %>
-    <h3><%= link_to "Sign Up Here", signup_path %></h3>
-    <p>
-    <h3><%= link_to "Login Here", '/login' %></h3>
-    <p>
-    <h3><%= button_to("Log In with Github", '/auth/github')%></h3>
-<% else %>
-    <h3><%= link_to "See All Reviews", reviews_path %></h3>
-    <p>
-    <h3><%= link_to "See All Reviewed Restaurants", restaurants_path %></h3>
-    <p>
-    <h3><%= link_to "See Reviews by Category", categories_path %></h3>
-<% end %>
+ <h3><%= homepage_links %></h3>
 </center>
