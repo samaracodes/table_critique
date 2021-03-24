@@ -1,10 +1,10 @@
 class Review < ApplicationRecord
-  has_many :review_categories
-  has_many :categories, through: :review_categories
+  has_many :review_categories, dependent: :delete_all
+  has_many :categories, through: :review_categories, dependent: :delete_all
   belongs_to :user
   belongs_to :restaurant
   
-  has_many :restaurants, through: :reviews
+  #has_many :restaurants, through: :reviews
   accepts_nested_attributes_for :restaurant
   #accepts_nested_attributes_for :categories
   validates :title, :content, presence: true
