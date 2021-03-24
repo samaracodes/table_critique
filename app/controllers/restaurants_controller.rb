@@ -1,10 +1,7 @@
 class RestaurantsController < ApplicationController 
 
-
     def index
-        if params[:review_id]
-            @restaurants = Review.find(params[:review_id]).restaurants
-        elsif params[:search]
+        if params[:search]
             @restaurants = Restaurant.where('name LIKE ?', "%#{params[:search]}%")
         else
             @restaurants = Restaurant.all
@@ -14,10 +11,9 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find_by_id(params[:id])
+        @review = Review.find_by_id(params[:restaurant_id])
     end
-
-    #
-  
+    
     private
      
     def restaurant_params
