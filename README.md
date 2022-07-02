@@ -4,8 +4,13 @@ Table Critique is an application used to review and share restaurant reviews wit
 
 How to run this app:
 --------------------
-Open a terminal & run the server with "rails s"
-Type in localhost:3000 into your browser to see our application in action.
+Install Instructions
+Clone this repo.
+Run 'bundle install'
+Run 'rake db:migrate' # migrates the tables into the database
+Run 'rake db:seed' # migrates seed file containing initial data to test the application with
+Run the server with 'rails s' and open localhost:3000 in your browser to access the homepage.
+Enjoy!
 
 As a user I can:
 ----------------
