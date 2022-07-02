@@ -1,10 +1,10 @@
 <h1>Table Critique</h1>
 
-<p>Table Critique is an application used to review and share restaurant reviews with the world!
-----------------------------------------------------
+<p>Table Critique is an application used to review and share your restaurant experiences with the world!
+
 
 <h2>Install Instructions</h2>
---------------------
+
 <li>Clone this repo.
 <li>Run 'bundle install'
 <li>Run 'rake db:migrate' # migrates the tables into the database
@@ -13,7 +13,7 @@
 <li>Enjoy!
 
 <h2>As a user I can:</h2>
-----------------
+
 <ul>
     <li>Sign up, sign in and sign out of Table Critique. 
     <li>Create a Review
@@ -26,7 +26,6 @@
     <li>Delete your own Reviews
 </ul>
 
------------------------------------------------------
 <h2>An MVC rails application that uses:</h2>
 <ul>
     <li> Sqlite database
