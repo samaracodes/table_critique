@@ -20,10 +20,27 @@ Edit your own Reviews
 Delete your own Reviews
 
 -----------------------------------------------------
-LICENSE Copyright Samara Grant<2021>
+An MVC rails application that uses:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Sqlite database
+ActiveRecord
+RESTful routes and Nested routes
+Sessions
+Signup/Login/Logout
+Omniauth gems for login via Google
+ORM - Object Relational Mapping between Models
+belongs_to
+has_many
+has_many: :through many-to-many
+CRUD functionality:
+Create
+Read
+Update
+Delete
+One class level Active Record Scope methods
+Helper methods to protect the views of the current_user. Only authorized users should be allowed to create, update, and delete their own gigs and user profile.
+Helper methods and partials to limit logic in views and the controllers
+Validations
+uniqueness of a user's login attributes
+presence and other custom validations to protect from bad or repetetive data being persisted into the database
+Flash messages to display validation error messages, and flash success messages to validate successful creation, edits, and deletion of gigs.
