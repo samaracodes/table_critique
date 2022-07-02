@@ -21,6 +21,8 @@ class ReviewsController < ApplicationController
    def new
       if params[:restaurant_id] && @restaurant = Restaurant.find_by_id(params[:restaurant_id])
          @review = @restaurant.reviews.build
+      elsif params[:category_id] && @category = Category.find_by_id(params[:category_id])
+         @review = @category.reviews.build
       else
          @review = Review.new
          @review.build_restaurant
@@ -44,27 +46,29 @@ class ReviewsController < ApplicationController
    end
 
    def edit
-      @review = current_user.Review.find_by_id(params[:id])
+      
+      @review = current_user.reviews.find_by_id(params[:id])
 
    end
 
    def update
-      if logged_in?
-         @review = Review.find_by_id(params[:id])
-         @review.update(review_params)
-         flash[:message] = "Review updated!"
-         redirect_to review_path(@review)
-      else
-         flash[:message] = "Incorrect credentials, please try again"
-         render action: :edit
-      end
+         if @review = current_user.reviews.find_by_id(params[:id])
+            @review.update(review_params)
+            flash[:message] = "Review updated!"
+            redirect_to review_path(@review)
+         else
+            render :login 
+         end
    end
 
    def destroy
-      @review = current_user.reviews.find(params[:id])
-      @review.destroy
-      redirect_to reviews_path
-      flash[:notice] = "The review has been deleted."
+      if @review = current_user.reviews.find_by_id(params[:id]) 
+         @review.destroy
+         redirect_to reviews_path
+         flash[:notice] = "The review has been deleted."
+      else
+         render :home
+      end
    end
 
    private

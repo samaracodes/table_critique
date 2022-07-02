@@ -11,7 +11,7 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find_by_id(params[:id])
-        @review = Review.find_by_id(params[:restaurant_id])
+        #@review = Review.find_by_id(params[:restaurant_id])
     end
     
     private

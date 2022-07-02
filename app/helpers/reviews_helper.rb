@@ -33,6 +33,8 @@ module ReviewsHelper
             out << link_to(review.title, restaurant_review_path(@restaurant, review.id))
         elsif params[:category_id]
             out << link_to(review.title, category_review_path(@category, review.id))
+        elsif params[:user_id]
+            out << link_to(review.title, user_review_path(@user, review.id))
         else
             out << link_to(review.title, review)
         end
