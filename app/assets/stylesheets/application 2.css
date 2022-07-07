@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+
  .checked {
     color: hotpink;
   }
@@ -30,11 +32,12 @@
     color: darkturquoise;
   }
 
-  th {
-    font-size: large;
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
-  th, td, p, h1, h2, h3, h4 {
-    font-family: Verdana, sans-serif;
-    text-align: center;
+  .navbar {
+    font-size: 20px;
+    font-weight: bold;
   }
+  

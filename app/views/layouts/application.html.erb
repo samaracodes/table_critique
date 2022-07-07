@@ -6,12 +6,12 @@
     <%= csp_meta_tag %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application 2', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div>
+    <div class="navbar">
       <% if logged_in? %>
         <%= link_to "HOME", reviews_path %> |
         <%= link_to "Your Profile", current_user %> |

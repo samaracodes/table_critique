@@ -33,7 +33,6 @@ gem 'jbuilder', '~> 2.7'
 
  gem 'rb-readline'
 
- gem 'materialize-sass'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
