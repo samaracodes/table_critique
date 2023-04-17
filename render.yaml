@@ -1,0 +1,18 @@
+databases:
+  - name: table_critique
+    databaseName: table_critique_db
+    user: table_critique
+
+services:
+  - type: web
+    name: table_critique
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: table_critique
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
