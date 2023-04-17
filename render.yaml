@@ -2,10 +2,12 @@ databases:
   - name: table_critique
     databaseName: table_critique_db
     user: table_critique
+    plan: free
 
 services:
   - type: web
     name: table_critique
+    plan: free
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
