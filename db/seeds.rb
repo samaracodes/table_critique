@@ -17,3 +17,5 @@ Category.create(name: "Indian")
 Category.create(name: "Fast Food")
 Category.create(name: "Dessert")
 
+
+stk = Restaurant.create(name: "STK")

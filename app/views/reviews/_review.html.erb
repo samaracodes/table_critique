@@ -1,13 +1,15 @@
 <tr>
     <td>
-        <h3><%= show_review(review) %></h3>
-        <p>
-       
-        <%= review.restaurant.name%>
-        <p>
-        <p><p>
-       
-        <small>Created at: <%= review.created_at %></small>
-        <p>
+        <% if review %>
+            <h3><%= show_review(review) %></h3>
+            <p>
+        
+            <%= review.restaurant.name%>
+            <p>
+            <p><p>
+        
+            <small>Created at: <%= review.created_at %></small>
+            <p>
+        <% end %>
     </td>
 <tr>
