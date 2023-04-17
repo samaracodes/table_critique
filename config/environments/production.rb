@@ -61,8 +61,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "table_critique_production"
 
   config.action_mailer.perform_caching = false
-  config.secret_key_base = ENV['SECRET_KEY_BASE']  
-
   config.read_encrypted_secrets = true
 
   # Ignore bad email addresses and do not raise email delivery errors.
