@@ -1,4 +1,4 @@
-class CreateReviewCategories < ActiveRecord::Migration[6.0]
+class CreateReviewCategories < ActiveRecord::Migration[6.1]
   def change
     create_table :review_categories do |t|
       t.belongs_to :category, index: true, foreign_key: true
