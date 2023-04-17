@@ -284,7 +284,7 @@ DEPENDENCIES
   pry
   psych (< 4)
   puma (~> 4.1)
-  rails
+  rails (~> 7.0.3)
   rb-readline
   sass-rails (>= 6)
   selenium-webdriver
